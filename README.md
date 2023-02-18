@@ -1,5 +1,7 @@
-# RoboPunksNFT-Website
+# RoboPunksNFT-UI
 
-## People can use this website to mint RoboPunks NFTs.
+## Description
+
+<p>NFT Minting website using Reactjs</p>
 
 
