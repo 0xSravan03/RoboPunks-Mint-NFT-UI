@@ -10,17 +10,14 @@ const MainMint = ({accounts, setAccounts}) => {
   const isConnected = Boolean(accounts[0]);
 
     async function handleMint() {
-        console.log("mint")
         if (window.ethereum) {
-            console.log("mint1")
             const provider = new ethers.providers.Web3Provider(window.ethereum);
             const signer = provider.getSigner();
             const contract = new ethers.Contract(roboPunksNFTAddress, roboPunksNFT.abi, signer);
-            console.log(contract.address)
 
             try {
-                console.log("new mint")
                 const txResponse = await contract.mint(BigNumber.from(mintAmount), {value: ethers.utils.parseEther((mintAmount * 0.01).toString())});
+                await txResponse.wait(2)
             }
             catch (error) {
                 console.log(error)
